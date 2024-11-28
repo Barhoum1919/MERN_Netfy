@@ -3,6 +3,7 @@ import { PORT , mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
 import cors from 'cors';
 import moviesRoute from  "./routes/moviesRoute.js"
+import usersRoute from "./routes/userRoute.js"
 
 
 
@@ -22,9 +23,10 @@ app.get('/',(req,res)=>{
 
 
 app.use('/movies', moviesRoute);
+app.use('/api/users', usersRoute);
 // Connect to MongoDB and start the server
 mongoose
-    .connect(mongoDBURL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(mongoDBURL)
     .then(() => {
         console.log("Connected to MongoDB");
         app.listen(PORT, () => {
