@@ -5,6 +5,7 @@ const movieSchema = new mongoose.Schema({
     description: { type: String, required: true },
     genre: { type: String, required: true },
     releaseYear: { type: Number, required: true },
+    thumbNail:{type: String, required: true},
     videoUrl: { type: String, required: true },
 
 });

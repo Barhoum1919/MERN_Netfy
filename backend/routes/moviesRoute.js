@@ -6,15 +6,15 @@ const router = express.Router();
 // Create a new Movie
 router.post('/', async (req, res) => {
     try {
-        const { title, description, genre, releaseYear, videoUrl } = req.body;
+        const { title, description, genre, releaseYear,thumbNail, videoUrl } = req.body;
 
-        if (!title || !description || !genre || !releaseYear || !videoUrl) {
+        if (!title || !description || !genre || !releaseYear ||!thumbNail || !videoUrl) {
             return res.status(400).json({
                 message: 'Send all required fields: title, description, genre, releaseYear, videoUrl',
             });
         }
 
-        const movie = await Movie.create({ title, description, genre, releaseYear, videoUrl });
+        const movie = await Movie.create({ title, description, genre, releaseYear,thumbNail, videoUrl });
 
         return res.status(201).json(movie);
     } catch (error) {
